@@ -60,14 +60,15 @@ while running:
  
     #Move both paddles
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_w]:
-        paddleLeft.moveUp(5)
-    if keys[pygame.K_s]:
-        paddleLeft.moveDown(5)
     if keys[pygame.K_UP]:
         paddleRight.moveUp(5)
     if keys[pygame.K_DOWN]:
-        paddleRight.moveDown(5)    
+        paddleRight.moveDown(5) 
+
+    if ball.rect.y <= paddleLeft.rect.centery:
+    	paddleLeft.moveUp(6)
+    if ball.rect.y >= paddleLeft.rect.centery: 
+    	paddleLeft.moveDown(6)  
  
     
     sprites_list.update()
